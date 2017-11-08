@@ -1,0 +1,32 @@
+<% content_for :banner do %>
+<div class="page-head">
+	<div class="container">
+		<h3>Check Out</h3>
+	</div>
+</div>
+<% end %>
+<!-- //banner -->
+<!-- check out -->
+<% content_for :content do %>
+<div class="checkout" data-turbolinks="false">
+	<div class="container">
+		<h3>My Shopping Bag</h3>
+		<div class="table-responsive checkout-right animated wow slideInUp" data-wow-delay=".5s">
+			<div class="simpleCart_items"></div>
+		</div>
+		<div>
+			Total: <div class="simpleCart_total"></div>
+		</div>
+		<a href="javascript:;" class="simpleCart_checkout">Check out</a>
+		<div class="checkout-left">
+			<div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
+					<a href="/index"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back To Shopping</a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+	</div>
+</div>
+</script>
+<% end %>
+<!-- //check out -->
+<!-- //product-nav -->
