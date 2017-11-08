@@ -1,0 +1,26 @@
+<% content_for :banner do %>
+  <div class="page-head">
+    <div class="container">
+      <h3><%= @user.email %></h3>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :content do %>
+  <div class="men-wear">
+    <div class="container">
+      <div class="col-md-4">
+        <% if @user.name %>
+          <p>Name: <%= @user.name %></p>
+        <% end %>
+        <% if @user.phone_number %>
+          <p>Phone number: <%= @user.phone_number %></p>
+        <% end %>
+        <% if @user.address %>
+          <p>Address: <%= @user.address %></p>
+        <% end %>
+        <%= link_to "Logout", logout_path, method: :delete %>
+      </div>
+    </div>
+  </div>
+<% end %>
