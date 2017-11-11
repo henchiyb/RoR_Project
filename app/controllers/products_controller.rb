@@ -3,5 +3,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by id: params[:id]
+    @provider = Provider.find_by id: @product.provider_id
   end
 end
