@@ -16,16 +16,16 @@
       <h1><%= link_to image_tag( "logo3.jpg", alt:"logo3.jpg"), index_path, "data-turbolinks":false %></h1>
     </div>
     <div class="col-md-6 header-middle">
-      <form>
+      <form accept-charset="UTF-8" action="/products" method="get">
         <div class="search">
-          <input type="search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+          <input type="search" name="search" placeholder="Type keyword" required="">
         </div>
         <div class="section_room">
-          <select id="country" onchange="change_country(this.value)" class="frm-field required">
-            <option value="null">All categories</option>
-            <option value="AX">Men's Wear</option>
-            <option value="AX">Women's Wear</option>
-            <option value="AX">Watches</option>
+          <select name="choice" class="frm-field required">
+            <option value="all">All categories</option>
+            <option value="mw">Men's Wear</option>
+            <option value="ww">Women's Wear</option>
+            <option value="w">Watches</option>
           </select>
         </div>
         <div class="sear-sub">

@@ -52,7 +52,24 @@
                 </div>
               </ul>
           </li>
-          <li class=" menu__item"><a class="menu__link" href="#">Watches</a></li>
+          <li class="dropdown menu__item">
+            <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Watches <span class="caret"></span></a>
+              <ul class="dropdown-menu multi-column columns-3">
+                <div class="row">
+                  <div class="col-sm-6 multi-gd-img multi-gd-text ">
+                    <a href="#"><%= image_tag "woo3.jpeg" %></a>
+                  </div>
+                  <div class="col-sm-3 multi-gd-img">
+                    <ul class="multi-column-dropdown">
+                      <% item2.each do |cate| %>
+                        <li><%= link_to cate.name, category_path(cate.id) %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </ul>
+          </li>
           <li class=" menu__item"><a class="menu__link" href="#">About</a></li>
           <li class=" menu__item"><a class="menu__link" href="#">contact</a></li>
           </ul>

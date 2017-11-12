@@ -1,5 +1,5 @@
 class AppController < ApplicationController
-  skip_before_action :require_signin, only: [:index,:mens,:womens]
+  skip_before_action :require_signin, only: :index
 
   def index
     @latest_product = Product.order("updated_at DESC").first 10
@@ -8,14 +8,6 @@ class AppController < ApplicationController
   end
 
   def checkout
-
-  end
-
-  def mens
-
-  end
-
-  def womens
 
   end
 
