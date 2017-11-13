@@ -75,18 +75,6 @@ ActiveRecord::Schema.define(version: 20171112145550) do
     t.index ["product_id"], name: "index_sub_categories_on_product_id"
   end
 
-  create_table "providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "description"
-  end
-
-  create_table "sub_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "category_id"
-    t.bigint "product_id"
-    t.index ["category_id"], name: "index_sub_categories_on_category_id"
-    t.index ["product_id"], name: "index_sub_categories_on_product_id"
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
