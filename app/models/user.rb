@@ -4,10 +4,12 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 255},
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
-
-  has_secure_password
   validates :password, presence: true, length: {minimum: 8}
   validate :check_password
+
+  has_secure_password
+
+  has_many :orders
 
   def check_password
     if password

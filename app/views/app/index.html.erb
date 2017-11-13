@@ -185,12 +185,18 @@
                       </div>
                       <span class="product-new-top">New</span>
                     </div>
-                    <div class="item-info-product ">
+                    <div class="item-info-product">
                       <h4><%= link_to product.name, product_path(product.id), class:"item_name" %></h4>
-                      <div class="info-product-price">
-                        <span class="item_price">$<%= product.price %></span>
-                      </div>
-                      <a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                      <%= form_for @order_item, remote: true do |f| %>
+                        <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></h4>
+                          <div class="input-group">
+                            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                            <div class="input-group-btn">
+                              <%= f.hidden_field :product_id, value: product.id %>
+                              <%= f.submit "Add to Cart", class: "btn btn-primary", "data-turbolinks":false %>
+                            </div>
+                          </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -213,10 +219,16 @@
                     </div>
                     <div class="item-info-product ">
                       <h4><%= link_to sp_product.name, product_path(sp_product.id), class:"item_name" %></h4>
-                      <div class="info-product-price">
-                        <span class="item_price">$<%= sp_product.price %></span>
-                      </div>
-                      <a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                      <%= form_for @order_item, remote: true do |f| %>
+                        <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency sp_product.price %></span></h4>
+                          <div class="input-group">
+                            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                            <div class="input-group-btn">
+                              <%= f.hidden_field :product_id, value: sp_product.id %>
+                              <%= f.submit "Add to Cart", class: "btn btn-primary", "data-turbolinks":false %>
+                            </div>
+                          </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -239,10 +251,16 @@
                     </div>
                     <div class="item-info-product ">
                       <h4><%= link_to col_product.name, product_path(col_product.id), class:"item_name" %></h4>
-                      <div class="info-product-price">
-                        <span class="item_price">$<%= col_product.price %></span>
-                      </div>
-                      <a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                      <%= form_for @order_item, remote: true do |f| %>
+                        <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency col_product.price %></span></h4>
+                          <div class="input-group">
+                            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                            <div class="input-group-btn">
+                              <%= f.hidden_field :product_id, value: col_product.id %>
+                              <%= f.submit "Add to Cart", class: "btn btn-primary", "data-turbolinks":false %>
+                            </div>
+                          </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>

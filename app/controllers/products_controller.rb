@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by id: params[:id]
+    @order_item = current_order.order_items.new
     @provider = Provider.find_by id: @product.provider_id
   end
 end

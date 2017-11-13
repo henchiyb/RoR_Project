@@ -1,7 +1,9 @@
 class Product < ApplicationRecord
+  has_many :order_items, dependent: :destroy
   belongs_to :provider
   has_many :sub_categories
-  has_many :categories, :through => :sub_categories
+  has_many :categories, through: :sub_categories
+
 
   class << self
     def search search_key, choice
