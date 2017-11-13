@@ -20,28 +20,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
   <%= render "layouts/header" %>
-  <%= render "layouts/banner" %>
+  <%= render "layouts/banner", item: @m_categories, item1: @w_categories, item2: @watches %>
   <%= yield :banner %>
   <%= yield :content %>
   <%= render "layouts/footer" %>
   <%= render "layouts/login" %>
-  <% flash.each do |message_type, message| %>
-  <div id="message">
-    <div style="padding: 5px;">
-        <div id="inner-message" class="alert alert-<%= message_type %>">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <% if message_type == "danger"%>
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <% else %>
-            <span class="glyphicon glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
-            <% end %>
-            <%= message %>
-        </div>
-    </div>
+  <div class="notice">
+    <%=render "layouts/message.html.erb"%>
   </div>
-  <script type="text/javascript">
-    $("#message").fadeOut(20000);
-  </script>
-  <% end %>
 </body>
 </html>
