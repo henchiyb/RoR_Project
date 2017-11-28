@@ -10,7 +10,6 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.string :image2
       t.string :image3
       t.timestamps
-      t.belongs_to :provider, index: true
     end
   end
 end
