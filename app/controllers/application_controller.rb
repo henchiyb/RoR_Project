@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_categories
-    @m_categories = Category.where(:cate_type => 0)
-    @w_categories = Category.where(:cate_type => 1)
-    @watches = Category.where(:cate_type => 2)
+    @m_categories = Category.get_categories_by_type 0
+    @w_categories = Category.get_categories_by_type 1
+    @watches = Category.get_categories_by_type 2
   end
 end

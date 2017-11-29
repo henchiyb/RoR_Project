@@ -24,10 +24,20 @@
           </div>
           <div class="item-info-product ">
             <h4><%= link_to product.name, product_path(product.id), class:"item_name" %></h4>
-            <div class="info-product-price">
-              <span class="item_price">$<%= product.price %></span>
+            <div class="occasion-cart">
+              <%= form_for @order_item, remote: true do |f| %>
+                <div class="info-product-price description">
+                  <h5>Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></h5>
+                </div>
+                <div class="input-group add-to-cart">
+                  <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+                  <div class="input-group-btn">
+                    <%= f.hidden_field :product_id, value: product.id %>
+                    <%= f.submit "Add to Cart", class: "btn btn-primary input-group-button", "data-turbolinks":false %>
+                  </div>
+                </div>
+              <% end %>
             </div>
-            <a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 <% content_for :banner do %>
   <div class="page-head">
     <div class="container">
-      <h3><%= @cate.name %></h3>
+      <h3><%= @category.name %></h3>
     </div>
   </div>
 <% end %>
@@ -122,7 +122,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="col-md-8 products-right">
-      <h5>Product Compare(0)</h5>
+      <h5>Product Compare(<%= @pro_of_cate.size %>)</h5>
       <div class="sort-grid">
         <div class="sorting">
           <h6>Sort By</h6>
@@ -150,7 +150,6 @@
         <div class="clearfix"></div>
       </div>
       <div class="men-wear-top">
-        <script src="js/responsiveslides.min.js"></script>
         <script>
         // You can also use "$(window).load(function() {"
         $(function() {
@@ -200,7 +199,7 @@
       </div>
       <% if @pro_of_cate != [] %>
         <% @pro_of_cate.each do |product| %>
-          <div class="col-md-4 product-men">
+          <div class="col-md-4 product-men yes-marg">
             <div class="men-pro-item simpleCart_shelfItem">
               <div class="men-thumb-item">
                 <%= image_tag product.image, alt:product.image, class:"pro-image-front" %>
@@ -212,18 +211,22 @@
                 </div>
                 <span class="product-new-top">New</span>
               </div>
-              <div class="item-info-product ">
+              <div class="item-info-product">
                 <h4><%= link_to product.name, product_path(product.id), class:"item_name" %></h4>
-                <%= form_for @order_item, remote: true do |f| %>
-                  <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></h4>
-                    <div class="input-group">
+                <div class="occasion-cart">
+                  <%= form_for @order_item, remote: true do |f| %>
+                    <div class="info-product-price description">
+                      <h5>Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></h5>
+                    </div>
+                    <div class="input-group add-to-cart">
                       <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
                       <div class="input-group-btn">
                         <%= f.hidden_field :product_id, value: product.id %>
-                        <%= f.submit "Add to Cart", class: "btn btn-primary", "data-turbolinks":false %>
+                        <%= f.submit "Add to Cart", class: "btn btn-primary input-group-button", "data-turbolinks":false %>
                       </div>
                     </div>
-                <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
