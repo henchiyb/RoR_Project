@@ -6,6 +6,10 @@ class Product < ApplicationRecord
 
 
   class << self
+    def get_product_of_category category_id
+      joins(:sub_categories).where("sub_categories.category_id = ?", category_id).all
+    end
+
     def search search_key, choice
       if choice.eql? "all"
         where("name LIKE ?", "%#{search_key}%")

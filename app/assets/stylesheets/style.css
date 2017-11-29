@@ -405,6 +405,11 @@ a.cart_empty {
     text-align: center;
     display: block;
 }
+
+a.cart_empty:hover {
+  color: red;
+}
+
 .header-right ul li a:hover {
     transform: rotateY(360deg);
 }
@@ -2003,6 +2008,15 @@ ol {
 }
 .input-group {
   margin-bottom: 20px;
+  width: 40%;
+}
+.input-group-button {
+  background-color: #FDA30E;
+  border-color: #FDA30E;
+}
+.add-to-cart {
+  width: 75%;
+  margin-left: 30px;
 }
 .breadcrumb {
     background-color: #2D2D2D;
@@ -2710,6 +2724,9 @@ table td {
 table td {
 	border:1px solid #CDCDCD;
 }
+td.invert-quantity {
+  width: 20px;
+}
 td.invert-image a img {
     width:30%;
     margin: 0 auto;
@@ -2825,7 +2842,7 @@ td.invert-image a img {
 .checkout-left-basket ul {
     padding: 4px 25px;
 }
-.checkout-left-basket ul li:nth-child(5) {
+.checkout-left-basket ul li:last-child {
     border-top: 1px solid #ccc;
     padding: 20px 0 0;
 }
