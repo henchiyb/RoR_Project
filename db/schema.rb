@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20171115135435) do
   create_table "sub_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "category_id"
     t.bigint "product_id"
-    t.index ["category_id"], name: "index_sub_categories_on_category_id"
-    t.index ["product_id"], name: "index_sub_categories_on_product_id"
+    t.index ["category_id"], name: "index_sub_categories_on_categories_id"
+    t.index ["product_id"], name: "index_sub_categories_on_products_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,4 +90,6 @@ ActiveRecord::Schema.define(version: 20171115135435) do
   add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "providers"
+  add_foreign_key "sub_categories", "categories"
+  add_foreign_key "sub_categories", "products"
 end

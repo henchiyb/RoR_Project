@@ -7,8 +7,11 @@ class ApplicationController < ActionController::Base
 
   def require_signin
     unless log_in?
-      flash[:danger] = "You need to sign in!"
-      redirect_to root_path
+      respond_to do |format|
+        flash[:danger] = "You need to sign in!"
+        format.html { redirect_to root_path }
+        format.js { render js: "window.location = '#{root_path}';" }
+      end
     end
   end
 

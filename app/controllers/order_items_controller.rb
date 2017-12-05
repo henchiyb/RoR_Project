@@ -5,7 +5,8 @@ class OrderItemsController < ApplicationController
   def create
     @order_item = @order.order_items.find_by product_id: order_item_params[:product_id]
     if @order_item
-      @order_item.update_attributes :quantity => order_item_params[:quantity]
+      @order_item.quantity += 1
+      @order_item.save
     else
       @order_item = @order.order_items.build order_item_params
       @order.save
