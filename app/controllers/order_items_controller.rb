@@ -5,13 +5,13 @@ class OrderItemsController < ApplicationController
   def create
     @order_item = @order.order_items.find_by product_id: order_item_params[:product_id]
     if @order_item
-      @order_item.quantity += 1
+      @order_item.quantity += order_item_params[:quantity].to_i
       @order_item.save
     else
       @order_item = @order.order_items.build order_item_params
       @order.save
     end
-    flash[:success] = "Added to your cart!"
+    flash.now[:success] = "Added to your cart!"
     session[:order_id] = @order.id
   end
 
