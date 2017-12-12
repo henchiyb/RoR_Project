@@ -16,23 +16,33 @@
       <h1><%= link_to image_tag( "logo3.jpg", alt:"logo3.jpg"), index_path, "data-turbolinks":false %></h1>
     </div>
     <div class="col-md-6 header-middle">
-      <form accept-charset="UTF-8" action="/products" method="get">
+      <form accept-charset="UTF-8" action="/searches" method="get">
         <div class="search">
-          <input type="search" name="search" placeholder="Type keyword" required="">
-        </div>
-        <div class="section_room">
-          <select name="choice" class="frm-field required">
-            <option value="all">All categories</option>
-            <option value="mw">Men's Wear</option>
-            <option value="ww">Women's Wear</option>
-            <option value="w">Watches</option>
-          </select>
+          <input type="search" id ="autocomplete-search" name="term" placeholder="Type keyword" required="">
         </div>
         <div class="sear-sub">
           <input type="submit" value=" ">
         </div>
         <div class="clearfix"></div>
       </form>
+      <div class="results"></div>
+      <script type="text/javascript">
+        $("#autocomplete-search").autocomplete({
+          source: "/searches",
+          minLength: 1,
+          appendTo: ".results",
+          select: function(event,ui){
+            $("#autocomplete-search").val(ui.item.name);
+            return false;
+          }
+          })
+          .data("ui-autocomplete")._renderItem = function(ul,item){
+            return $("<li>")
+            .data("item.autocomplete",item)
+            .append(item.name)
+            .appendTo(ul);
+          };
+      </script>
     </div>
     <div class="col-md-3 header-right footer-bottom">
       <ul>
