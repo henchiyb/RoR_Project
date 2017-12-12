@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resource :carts, only: [:show, :destroy]
   resources :order_items, only: [:create, :update, :destroy]
   resources :categories
+  resources :searches, only: :index
 end

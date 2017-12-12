@@ -1,8 +1,5 @@
 
 /* right-aligned */
-
-.ui-menu .ui-menu-icon { position: static; float: right; }
-
 .ui-progressbar { height:2em; text-align: left; overflow: hidden; }
 .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
 .ui-resizable { position: relative;}
@@ -46,13 +43,50 @@
 /* Fades and background-images don't work well together in IE6, drop the image */
 /* Component containers
 ----------------------------------*/
-.ui-widget { font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; font-size: 1.1em/*{fsDefault}*/; }
-.ui-widget .ui-widget { font-size: 1em; }
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; font-size: 1em; }
-.ui-widget-content { background: #c3c3c3; color: #222222;  margin:2em 0 5em 0; }
-.ui-widget-content a { color: #222222/*{fcContent}*/; }
-.ui-widget-header {  background: #000; color: #222222/*{fcHeader}*/; font-weight: bold; }
-.ui-widget-header a { color: #222222/*{fcHeader}*/; }
+.ui-widget {
+  font-family: Verdana,
+  Arial,
+  sans-serif/*{ffDefault}*/
+  ;
+  font-size: 1.1em/*{fsDefault}*/
+  ;
+}
+
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Verdana,
+  Arial,
+  sans-serif/*{ffDefault}*/
+  ;
+  font-size: 1em;
+}
+
+.ui-widget-content {
+  color: #222222;
+  margin: 2em 0 5em 0;
+}
+
+.ui-widget-content a {
+  color: #222222/*{fcContent}*/
+  ;
+}
+
+.ui-widget-header {
+  background: #000;
+  color: #222222/*{fcHeader}*/
+  ;
+  font-weight: bold;
+}
+
+.ui-widget-header a {
+  color: #222222/*{fcHeader}*/
+  ;
+}
 
 /* Interaction states
 ----------------------------------*/
@@ -61,3 +95,37 @@
   width: 10px;
   height: 10px; }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555/*{fcDefault}*/; text-decoration: none; }
+
+/*Jquery autocomplete */
+.ui-corner-all {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.ui-menu {
+    border: 1px solid lightgray;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 999999;
+}
+.ui-menu .ui-menu-item a {
+    color: #888;
+}
+.ui-menu .ui-menu-item:hover {
+    display: block;
+    text-decoration: none;
+    color: #3D3D3D;
+    cursor: pointer;
+    background-color: lightgray;
+    background-image: none;
+    border: 1px solid lightgray;
+}
+.ui-widget-content .ui-state-hover, .ui-widget-content .ui-state-focus {
+    border: 1px solid lightgray;
+    background-image: none;
+    background-color: lightgray;
+    font-weight: bold;
+    color: #3D3D3D;
+}

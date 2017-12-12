@@ -128,22 +128,8 @@ label{
     padding: 14px 10px;
     color: #848484;
     font-size: 16px;
-    border-right: 1px solid #eee;
 }
-.section_room select {
-    padding: 13px 10px;
-    width: 100%;
-    font-weight: normal;
-    background: none;
-    border: none;
-    color: #848484;
-    outline: none;
-    font-size: 16px;
-    margin-bottom: 0;
-    background: url(/assets/arrow.png) no-repeat 92% center #ffffff;
-    background-size: 5% !important;
-    -webkit-appearance: none;
-}
+
 .header-middle form input[type="submit"]{
     background: url(/assets/search.png) no-repeat 4px 0px #fda30e;
     width: 100%;
@@ -155,12 +141,9 @@ label{
 }
 .search {
     float: left;
-    width: 57%;
+    width: 90%;
 }
-.section_room{
-    float: left;
-    width: 33%;
-}
+
 .sear-sub{
     float: right;
     width: 10%;
@@ -172,9 +155,7 @@ label{
 .header-right ul {
     margin-top: 20px;
 }
-.section_room select option {
-    line-height: 1.8em;
-}
+
 /* Icons */
 .footer-bottom a {
 
@@ -1563,23 +1544,6 @@ a.single-item{
     color: #FDA30E;
 }
 /*-- //login --*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*-- navigation --*/
 ul.multi-column-dropdown li {
@@ -5147,3 +5111,4 @@ table th {
   .flickr_pagination .next_page {
     margin-left: 1em; }
 /* -- //paginate -- */
+
