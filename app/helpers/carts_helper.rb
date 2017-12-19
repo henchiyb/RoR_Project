@@ -6,7 +6,7 @@ module CartsHelper
       Order.new(user_id: session[:user_id], order_status_id: "1")
   end
 
-  def inProgress_order user
+  def get_cart user
     @order = user.orders.find_by order_status_id: "1"
     if !@order.nil?
       session[:order_id] = @order.id

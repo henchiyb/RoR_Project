@@ -11,16 +11,53 @@
     <div class="container">
       <div class="col-md-4">
         <h3 style="color: #ff9900" align="center">THE USER'S INFORMATION</h3>
-        <% if @user.name %>
-          <p>Name: <%= @user.name %></p>
-        <% end %>
-        <% if @user.phone_number %>
-          <p>Phone number: <%= @user.phone_number %></p>
-        <% end %>
-        <% if @user.address %>
-          <p>Address: <%= @user.address %></p>
-        <% end %>
-        <%= link_to "Logout", logout_path, method: :delete %>
+          <p>Name: <% if @user.name %><%= @user.name %><% end %></p>
+          <p>Phone number: <% if @user.phone_number %><%= @user.phone_number %><% end %></p>
+          <p>Address: <% if @user.address %><%= @user.address %><% end %></p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
+          <%= link_to "Logout", logout_path,type: "button" ,class: "btn btn-danger",method: :delete %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="editModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit</h4>
+        </div>
+        <div class="modal-body">
+          <form id="edit_user" class="form-horizontal edit_user" accept-charset="UTF-8" action="<%= user_path %>" method="post">
+            <input name="_method" type="hidden" value="patch" />
+            <%= hidden_field_tag :authenticity_token,form_authenticity_token %>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="user_name">Name:</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="user_name" type="text" name="user[name]" value="<% if @user.name %><%= @user.name %><% end %>" required="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="user_phone">Phone:</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="user_phone" type="text" name="user[phone_number]" value="<% if @user.phone_number %><%= @user.phone_number %><% end %>" required="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="user_address">Address:</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="user_address" type="text" name="user[address]" value="<% if @user.address %><%= @user.address %><% end %>" required="">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
