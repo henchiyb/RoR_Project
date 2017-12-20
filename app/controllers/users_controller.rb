@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :require_signin, only: :create
-  before_action :correct_user, only: [:update]
+  before_action :correct_user, only: [:update, :show]
 
   def show
-    @user = current_user
+    @user = User.find params[:id]
   end
 
   def create
@@ -34,7 +34,10 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @user = User.find_by params[:id]
-    redirect_to root_path unless @user == current_user
+    @user = User.find params[:id]
+    unless @user == current_user
+      flash[:danger] = "Permission denied"
+      redirect_to root_path
+    end
   end
 end
