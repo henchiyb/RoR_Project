@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])
       log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       get_cart user
       if user.address && user.phone_number && user.name
         flash[:success] = "Welcome!"
@@ -20,9 +21,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :order_id
-    log_out
-    redirect_to root_path
+    log_out if log_in?
+    redirect_to root_url
   end
 end
 
