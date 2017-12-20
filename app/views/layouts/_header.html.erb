@@ -39,7 +39,7 @@
           .data("ui-autocomplete")._renderItem = function(ul,item){
             return $("<li>")
             .data("item.autocomplete",item)
-            .append(item.name)
+            .append("<p>"+item.name+"</p>"+"<p>"+item.price+"</p>")
             .appendTo(ul);
           };
       </script>
@@ -47,16 +47,16 @@
     <div class="col-md-3 header-right footer-bottom">
       <ul>
       <% if log_in? %>
-        <li><a href="<%= user_path current_user %>" class="use1" data-turbolinks="false"></a>
+        <li><a href="<%= user_path current_user.id %>" class="use1" data-turbolinks="false"></a>
         </li>
       <% else %>
         <li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a>
         </li>
       <% end %>
-        <li><a class="fb" href="#"></a></li>
-        <li><a class="twi" href="#"></a></li>
-        <li><a class="insta" href="#"></a></li>
-        <li><a class="you" href="#"></a></li>
+        <li><a class="fb" href="#" data-turbolinks="false"></a></li>
+        <li><a class="twi" href="#" data-turbolinks="false"></a></li>
+        <li><a class="insta" href="#" data-turbolinks="false"></a></li>
+        <li><a class="you" href="#" data-turbolinks="false"></a></li>
       </ul>
     </div>
     <div class="clearfix"></div>
