@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220140025) do
+ActiveRecord::Schema.define(version: 20171222154657) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20171220140025) do
   create_table "sub_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "category_id"
     t.bigint "product_id"
-    t.index ["category_id"], name: "index_sub_categories_on_categories_id"
-    t.index ["product_id"], name: "index_sub_categories_on_products_id"
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
+    t.index ["product_id"], name: "index_sub_categories_on_product_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 20171220140025) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"
+    t.string "uid"
+    t.string "provider"
   end
 
   add_foreign_key "order_items", "orders"
@@ -91,6 +93,4 @@ ActiveRecord::Schema.define(version: 20171220140025) do
   add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "providers"
-  add_foreign_key "sub_categories", "categories"
-  add_foreign_key "sub_categories", "products"
 end

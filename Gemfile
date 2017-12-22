@@ -22,6 +22,8 @@ gem "jquery-ui-rails"
 gem "flexslider"
 gem "jquery-easing-rails"
 gem "will_paginate", "~> 3.1.0"
+gem "omniauth"
+gem "omniauth-facebook"
 
 
 group :development, :test do
